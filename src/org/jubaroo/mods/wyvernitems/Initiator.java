@@ -46,18 +46,18 @@ public class Initiator implements WurmServerMod, ItemTemplatesCreatedListener, C
         Initiator.logger = Logger.getLogger(Initiator.class.getName());
         Initiator.depleteAmount = 10000; // ore removed per rod
         Initiator.traderQuality = 99.0f;
-        Initiator.traderAffinityCatcher = false;
-        Initiator.traderAffinityOrb = false;
-        Initiator.traderArrowPackHunting = false;
-        Initiator.traderArrowPackWar = false;
-        Initiator.traderBookOfConversion = false;
-        Initiator.traderChaosCrystal = false;
-        Initiator.traderCoinDecoration = false;
-        Initiator.traderDepthDrill = false;
-        Initiator.traderDisintegrationRod = false;
-        Initiator.traderEnchantersCrystal = false;
-        Initiator.traderEnchantOrb = false;
-        Initiator.traderEternalOrb = false;
+        Initiator.traderAffinityCatcher = true;
+        Initiator.traderAffinityOrb = true;
+        Initiator.traderArrowPackHunting = true;
+        Initiator.traderArrowPackWar = true;
+        Initiator.traderBookOfConversion = true;
+        Initiator.traderChaosCrystal = true;
+        Initiator.traderCoinDecoration = true;
+        Initiator.traderDepthDrill = true;
+        Initiator.traderDisintegrationRod = true;
+        Initiator.traderEnchantersCrystal = true;
+        Initiator.traderEnchantOrb = true;
+        Initiator.traderEternalOrb = true;
         Initiator.valueAffinityCatcher = 10000;
         Initiator.valueAffinityOrb = 5000;
         Initiator.valueArrowPackHunting = 1000;
@@ -73,6 +73,11 @@ public class Initiator implements WurmServerMod, ItemTemplatesCreatedListener, C
     }
 
     public void configure(Properties p) {
+        double copper = 100;
+        double silver = 10000;
+        double gold = 1000000;
+        DecimalFormat comma = new DecimalFormat("#,###,###,###");
+        DecimalFormat decimal = new DecimalFormat("#.############");
         Initiator.logger.info("");
         Initiator.logger.info("===================== Wyvern Items Mod =====================");
         Initiator.logger.log(Level.INFO, "configure called");
@@ -106,7 +111,7 @@ public class Initiator implements WurmServerMod, ItemTemplatesCreatedListener, C
         Initiator.valueEternalOrb = Integer.valueOf( p.getProperty("Eternal_Orb_Value"));
         // Logging
         Initiator.logger.info("=== Settings ===");
-        Initiator.logger.info("Disintegration_Rod_Deplete_Amount = " + depleteAmount);
+        Initiator.logger.info("Disintegration_Rod_Deplete_Amount = " + comma.format(depleteAmount));
         Initiator.logger.info("Trader_Item_Quality = " + traderQuality);
         Initiator.logger.info("=== Items On Traders ===");
         if (Initiator.traderAffinityCatcher) { Initiator.logger.log(Level.INFO, "Affinity_Catcher: Enabled"); }
@@ -134,24 +139,19 @@ public class Initiator implements WurmServerMod, ItemTemplatesCreatedListener, C
         if (Initiator.traderEternalOrb) { Initiator.logger.log(Level.INFO, "Eternal_Orb: Enabled"); }
         if (!Initiator.traderEternalOrb) { Initiator.logger.log(Level.INFO, "Eternal_Orb: Disabled"); }
         Initiator.logger.info("=== Value Of Items ===");
-        double copper = 100;
-        double silver = 10000;
-        double gold = 1000000;
-        DecimalFormat ironValue = new DecimalFormat("#,###,###,###");
-        DecimalFormat decimal = new DecimalFormat("#.############");
-        Initiator.logger.info("Affinity_Catcher_Value = " + ironValue.format(valueAffinityCatcher) + " iron, or " + decimal.format(valueAffinityCatcher/copper) + " copper, or " + decimal.format(valueAffinityCatcher/silver) + " silver, or " + decimal.format(valueAffinityCatcher/gold) + " gold");
-        Initiator.logger.info("Affinity_Orb_Value = " + ironValue.format(valueAffinityOrb) + " iron, or " + decimal.format(valueAffinityOrb/copper) + " copper, or " + decimal.format(valueAffinityOrb/silver) + " silver, or " + decimal.format(valueAffinityOrb/gold) + " gold");
-        Initiator.logger.info("Arrow_Pack_Hunting_Value = " + ironValue.format(valueArrowPackHunting) + " iron, or " + decimal.format(valueArrowPackHunting/copper) + " copper, or " + decimal.format(valueArrowPackHunting/silver) + " silver, or " + decimal.format(valueArrowPackHunting/gold) + " gold");
-        Initiator.logger.info("Arrow_Pack_Hunting_Value = " + ironValue.format(valueArrowPackWar) + " iron, or " + decimal.format(valueArrowPackWar/copper) + " copper, or " + decimal.format(valueArrowPackWar/silver) + " silver, or " + decimal.format(valueArrowPackWar/gold) + " gold");
-        Initiator.logger.info("Arrow_Pack_War_Value = " + ironValue.format(valueBookOfConversion) + " iron, or " + decimal.format(valueBookOfConversion/copper) + " copper, or " + decimal.format(valueBookOfConversion/silver) + " silver, or " + decimal.format(valueBookOfConversion/gold) + " gold");
-        Initiator.logger.info("Book_Of_Conversion_Value = " + ironValue.format(valueAffinityCatcher) + " iron, or " + decimal.format(valueAffinityCatcher/copper) + " copper, or " + decimal.format(valueAffinityCatcher/silver) + " silver, or " + decimal.format(valueAffinityCatcher/gold) + " gold");
-        Initiator.logger.info("Chaos_Crystal_Value = " + ironValue.format(valueChaosCrystal) + " iron, or " + decimal.format(valueChaosCrystal/copper) + " copper, or " + decimal.format(valueChaosCrystal/silver) + " silver, or " + decimal.format(valueChaosCrystal/gold) + " gold");
-        Initiator.logger.info("Coin_Decoration_Value = " + ironValue.format(valueCoinDecoration) + " iron, or " + decimal.format(valueCoinDecoration/copper) + " copper, or " + decimal.format(valueCoinDecoration/silver) + " silver, or " + decimal.format(valueCoinDecoration/gold) + " gold");
-        Initiator.logger.info("Depth_Drill_Value = " + ironValue.format(valueDepthDrill) + " iron, or " + decimal.format(valueDepthDrill/copper) + " copper, or " + decimal.format(valueDepthDrill/silver) + " silver, or " + decimal.format(valueDepthDrill/gold) + " gold");
-        Initiator.logger.info("Disintegration_Rod_Value = " + ironValue.format(valueDisintegrationRod) + " iron, or " + decimal.format(valueDisintegrationRod/copper) + " copper, or " + decimal.format(valueDisintegrationRod/silver) + " silver, or " + decimal.format(valueDisintegrationRod/gold) + " gold");
-        Initiator.logger.info("Enchanters_Crystal_Value = " + ironValue.format(valueEnchantersCrystal) + " iron, or " + decimal.format(valueEnchantersCrystal/copper) + " copper, or " + decimal.format(valueEnchantersCrystal/silver) + " silver, or " + decimal.format(valueEnchantersCrystal/gold) + " gold");
-        Initiator.logger.info("Enchant_Orb_Value = " + ironValue.format(valueEnchantOrb) + " iron, or " + decimal.format(valueEnchantOrb/copper) + " copper, or " + decimal.format(valueEnchantOrb/silver) + " silver, or " + decimal.format(valueEnchantOrb/gold) + " gold");
-        Initiator.logger.info("Eternal_Orb_Value = " + ironValue.format(valueEternalOrb) + " iron, or " + decimal.format(valueEternalOrb/copper) + " copper, or " + decimal.format(valueEternalOrb/silver) + " silver, or " + decimal.format(valueEternalOrb/gold) + " gold");
+        Initiator.logger.info("Affinity_Catcher_Value = " + comma.format(valueAffinityCatcher) + " iron, or " + decimal.format(valueAffinityCatcher/copper) + " copper, or " + decimal.format(valueAffinityCatcher/silver) + " silver, or " + decimal.format(valueAffinityCatcher/gold) + " gold");
+        Initiator.logger.info("Affinity_Orb_Value = " + comma.format(valueAffinityOrb) + " iron, or " + decimal.format(valueAffinityOrb/copper) + " copper, or " + decimal.format(valueAffinityOrb/silver) + " silver, or " + decimal.format(valueAffinityOrb/gold) + " gold");
+        Initiator.logger.info("Arrow_Pack_Hunting_Value = " + comma.format(valueArrowPackHunting) + " iron, or " + decimal.format(valueArrowPackHunting/copper) + " copper, or " + decimal.format(valueArrowPackHunting/silver) + " silver, or " + decimal.format(valueArrowPackHunting/gold) + " gold");
+        Initiator.logger.info("Arrow_Pack_Hunting_Value = " + comma.format(valueArrowPackWar) + " iron, or " + decimal.format(valueArrowPackWar/copper) + " copper, or " + decimal.format(valueArrowPackWar/silver) + " silver, or " + decimal.format(valueArrowPackWar/gold) + " gold");
+        Initiator.logger.info("Arrow_Pack_War_Value = " + comma.format(valueBookOfConversion) + " iron, or " + decimal.format(valueBookOfConversion/copper) + " copper, or " + decimal.format(valueBookOfConversion/silver) + " silver, or " + decimal.format(valueBookOfConversion/gold) + " gold");
+        Initiator.logger.info("Book_Of_Conversion_Value = " + comma.format(valueAffinityCatcher) + " iron, or " + decimal.format(valueAffinityCatcher/copper) + " copper, or " + decimal.format(valueAffinityCatcher/silver) + " silver, or " + decimal.format(valueAffinityCatcher/gold) + " gold");
+        Initiator.logger.info("Chaos_Crystal_Value = " + comma.format(valueChaosCrystal) + " iron, or " + decimal.format(valueChaosCrystal/copper) + " copper, or " + decimal.format(valueChaosCrystal/silver) + " silver, or " + decimal.format(valueChaosCrystal/gold) + " gold");
+        Initiator.logger.info("Coin_Decoration_Value = " + comma.format(valueCoinDecoration) + " iron, or " + decimal.format(valueCoinDecoration/copper) + " copper, or " + decimal.format(valueCoinDecoration/silver) + " silver, or " + decimal.format(valueCoinDecoration/gold) + " gold");
+        Initiator.logger.info("Depth_Drill_Value = " + comma.format(valueDepthDrill) + " iron, or " + decimal.format(valueDepthDrill/copper) + " copper, or " + decimal.format(valueDepthDrill/silver) + " silver, or " + decimal.format(valueDepthDrill/gold) + " gold");
+        Initiator.logger.info("Disintegration_Rod_Value = " + comma.format(valueDisintegrationRod) + " iron, or " + decimal.format(valueDisintegrationRod/copper) + " copper, or " + decimal.format(valueDisintegrationRod/silver) + " silver, or " + decimal.format(valueDisintegrationRod/gold) + " gold");
+        Initiator.logger.info("Enchanters_Crystal_Value = " + comma.format(valueEnchantersCrystal) + " iron, or " + decimal.format(valueEnchantersCrystal/copper) + " copper, or " + decimal.format(valueEnchantersCrystal/silver) + " silver, or " + decimal.format(valueEnchantersCrystal/gold) + " gold");
+        Initiator.logger.info("Enchant_Orb_Value = " + comma.format(valueEnchantOrb) + " iron, or " + decimal.format(valueEnchantOrb/copper) + " copper, or " + decimal.format(valueEnchantOrb/silver) + " silver, or " + decimal.format(valueEnchantOrb/gold) + " gold");
+        Initiator.logger.info("Eternal_Orb_Value = " + comma.format(valueEternalOrb) + " iron, or " + decimal.format(valueEternalOrb/copper) + " copper, or " + decimal.format(valueEternalOrb/silver) + " silver, or " + decimal.format(valueEternalOrb/gold) + " gold");
     }
 
     public void preInit() {
