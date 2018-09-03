@@ -78,42 +78,41 @@ public class Initiator implements WurmServerMod, ItemTemplatesCreatedListener, C
         double gold = 1000000;
         DecimalFormat comma = new DecimalFormat("#,###,###,###");
         DecimalFormat decimal = new DecimalFormat("#.############");
-        Initiator.logger.info("");
         Initiator.logger.info("===================== Wyvern Items Mod =====================");
         Initiator.logger.log(Level.INFO, "configure called");
-        Initiator.depleteAmount = Integer.valueOf( p.getProperty("Disintegration_Rod_Deplete_Amount"));
-        Initiator.traderQuality = Float.valueOf(p.getProperty("Trader_Item_Quality"));
+        Initiator.depleteAmount = Integer.valueOf( p.getProperty("Disintegration_Rod_Deplete_Amount", String.valueOf(Initiator.depleteAmount)));
+        Initiator.traderQuality = Float.valueOf(p.getProperty("Trader_Item_Quality", String.valueOf(Initiator.traderQuality)));
         // Trader items
-        Initiator.traderAffinityCatcher = Boolean.valueOf(p.getProperty("Affinity_Catcher"));
-        Initiator.traderAffinityOrb = Boolean.valueOf(p.getProperty("Affinity_Orb"));
-        Initiator.traderArrowPackHunting = Boolean.valueOf(p.getProperty("Arrow_Pack_Hunting"));
-        Initiator.traderArrowPackWar = Boolean.valueOf(p.getProperty("Arrow_Pack_War"));
-        Initiator.traderBookOfConversion = Boolean.valueOf(p.getProperty("Book_Of_Conversion"));
-        Initiator.traderChaosCrystal = Boolean.valueOf(p.getProperty("Chaos_Crystal"));
-        Initiator.traderCoinDecoration = Boolean.valueOf(p.getProperty("Coin_Decoration"));
-        Initiator.traderDepthDrill = Boolean.valueOf(p.getProperty("Depth_Drill"));
-        Initiator.traderDisintegrationRod = Boolean.valueOf(p.getProperty("Disintegration_Rod"));
-        Initiator.traderEnchantersCrystal = Boolean.valueOf(p.getProperty("Enchanters_Crystal"));
-        Initiator.traderEnchantOrb = Boolean.valueOf(p.getProperty("Enchant_Orb"));
-        Initiator.traderEternalOrb = Boolean.valueOf(p.getProperty("Eternal_Orb"));
+        Initiator.traderAffinityCatcher = Boolean.valueOf(p.getProperty("Affinity_Catcher", String.valueOf(Initiator.traderAffinityCatcher)));
+        Initiator.traderAffinityOrb = Boolean.valueOf(p.getProperty("Affinity_Orb", String.valueOf(Initiator.traderAffinityOrb)));
+        Initiator.traderArrowPackHunting = Boolean.valueOf(p.getProperty("Arrow_Pack_Hunting", String.valueOf(Initiator.traderArrowPackHunting)));
+        Initiator.traderArrowPackWar = Boolean.valueOf(p.getProperty("Arrow_Pack_War", String.valueOf(Initiator.traderArrowPackWar)));
+        Initiator.traderBookOfConversion = Boolean.valueOf(p.getProperty("Book_Of_Conversion", String.valueOf(Initiator.traderBookOfConversion)));
+        Initiator.traderChaosCrystal = Boolean.valueOf(p.getProperty("Chaos_Crystal", String.valueOf(Initiator.traderChaosCrystal)));
+        Initiator.traderCoinDecoration = Boolean.valueOf(p.getProperty("Coin_Decoration", String.valueOf(Initiator.traderCoinDecoration)));
+        Initiator.traderDepthDrill = Boolean.valueOf(p.getProperty("Depth_Drill", String.valueOf(Initiator.traderDepthDrill)));
+        Initiator.traderDisintegrationRod = Boolean.valueOf(p.getProperty("Disintegration_Rod", String.valueOf(Initiator.traderDisintegrationRod)));
+        Initiator.traderEnchantersCrystal = Boolean.valueOf(p.getProperty("Enchanters_Crystal", String.valueOf(Initiator.traderEnchantersCrystal)));
+        Initiator.traderEnchantOrb = Boolean.valueOf(p.getProperty("Enchant_Orb", String.valueOf(Initiator.traderEnchantOrb)));
+        Initiator.traderEternalOrb = Boolean.valueOf(p.getProperty("Eternal_Orb", String.valueOf(Initiator.traderEternalOrb)));
         // Values
-        Initiator.valueAffinityCatcher = Integer.valueOf( p.getProperty("Affinity_Catcher_Value"));
-        Initiator.valueAffinityOrb = Integer.valueOf( p.getProperty("Affinity_Orb_Value"));
-        Initiator.valueArrowPackHunting = Integer.valueOf( p.getProperty("Arrow_Pack_Hunting_Value"));
-        Initiator.valueArrowPackWar = Integer.valueOf( p.getProperty("Arrow_Pack_War_Value"));
-        Initiator.valueBookOfConversion = Integer.valueOf( p.getProperty("Book_Of_Conversion_Value"));
-        Initiator.valueChaosCrystal = Integer.valueOf( p.getProperty("Chaos_Crystal_Value"));
-        Initiator.valueCoinDecoration = Integer.valueOf( p.getProperty("Coin_Decoration_Value"));
-        Initiator.valueDepthDrill = Integer.valueOf( p.getProperty("Depth_Drill_Value"));
-        Initiator.valueDisintegrationRod = Integer.valueOf( p.getProperty("Disintegration_Rod_Value"));
-        Initiator.valueEnchantersCrystal = Integer.valueOf( p.getProperty("Enchanters_Crystal_Value"));
-        Initiator.valueEnchantOrb = Integer.valueOf( p.getProperty("Enchant_Orb_Value"));
-        Initiator.valueEternalOrb = Integer.valueOf( p.getProperty("Eternal_Orb_Value"));
+        Initiator.valueAffinityCatcher = Integer.valueOf( p.getProperty("Affinity_Catcher_Value", String.valueOf(Initiator.valueAffinityCatcher)));
+        Initiator.valueAffinityOrb = Integer.valueOf( p.getProperty("Affinity_Orb_Value", String.valueOf(Initiator.valueAffinityOrb)));
+        Initiator.valueArrowPackHunting = Integer.valueOf( p.getProperty("Arrow_Pack_Hunting_Value", String.valueOf(Initiator.valueArrowPackHunting)));
+        Initiator.valueArrowPackWar = Integer.valueOf( p.getProperty("Arrow_Pack_War_Value", String.valueOf(Initiator.valueArrowPackWar)));
+        Initiator.valueBookOfConversion = Integer.valueOf( p.getProperty("Book_Of_Conversion_Value", String.valueOf(Initiator.valueBookOfConversion)));
+        Initiator.valueChaosCrystal = Integer.valueOf( p.getProperty("Chaos_Crystal_Value", String.valueOf(Initiator.valueChaosCrystal)));
+        Initiator.valueCoinDecoration = Integer.valueOf( p.getProperty("Coin_Decoration_Value", String.valueOf(Initiator.valueCoinDecoration)));
+        Initiator.valueDepthDrill = Integer.valueOf( p.getProperty("Depth_Drill_Value", String.valueOf(Initiator.valueDepthDrill)));
+        Initiator.valueDisintegrationRod = Integer.valueOf( p.getProperty("Disintegration_Rod_Value", String.valueOf(Initiator.valueDisintegrationRod)));
+        Initiator.valueEnchantersCrystal = Integer.valueOf( p.getProperty("Enchanters_Crystal_Value", String.valueOf(Initiator.valueEnchantersCrystal)));
+        Initiator.valueEnchantOrb = Integer.valueOf( p.getProperty("Enchant_Orb_Value", String.valueOf(Initiator.valueEnchantOrb)));
+        Initiator.valueEternalOrb = Integer.valueOf( p.getProperty("Eternal_Orb_Value", String.valueOf(Initiator.valueEternalOrb)));
         // Logging
-        Initiator.logger.info("=== Settings ===");
+        Initiator.logger.info("====== Settings ======");
         Initiator.logger.info("Disintegration_Rod_Deplete_Amount = " + comma.format(depleteAmount));
         Initiator.logger.info("Trader_Item_Quality = " + traderQuality);
-        Initiator.logger.info("=== Items On Traders ===");
+        Initiator.logger.info("====== Items On Traders ======");
         if (Initiator.traderAffinityCatcher) { Initiator.logger.log(Level.INFO, "Affinity_Catcher: Enabled"); }
         if (!Initiator.traderAffinityCatcher) { Initiator.logger.log(Level.INFO, "Affinity_Catcher: Disabled"); }
         if (Initiator.traderAffinityOrb) { Initiator.logger.log(Level.INFO, "Affinity_Orb: Enabled"); }
@@ -138,7 +137,7 @@ public class Initiator implements WurmServerMod, ItemTemplatesCreatedListener, C
         if (!Initiator.traderEnchantOrb) { Initiator.logger.log(Level.INFO, "Enchant_Orb: Disabled"); }
         if (Initiator.traderEternalOrb) { Initiator.logger.log(Level.INFO, "Eternal_Orb: Enabled"); }
         if (!Initiator.traderEternalOrb) { Initiator.logger.log(Level.INFO, "Eternal_Orb: Disabled"); }
-        Initiator.logger.info("=== Value Of Items ===");
+        Initiator.logger.info("====== Value Of Items ======");
         Initiator.logger.info("Affinity_Catcher_Value = " + comma.format(valueAffinityCatcher) + " iron, or " + decimal.format(valueAffinityCatcher/copper) + " copper, or " + decimal.format(valueAffinityCatcher/silver) + " silver, or " + decimal.format(valueAffinityCatcher/gold) + " gold");
         Initiator.logger.info("Affinity_Orb_Value = " + comma.format(valueAffinityOrb) + " iron, or " + decimal.format(valueAffinityOrb/copper) + " copper, or " + decimal.format(valueAffinityOrb/silver) + " silver, or " + decimal.format(valueAffinityOrb/gold) + " gold");
         Initiator.logger.info("Arrow_Pack_Hunting_Value = " + comma.format(valueArrowPackHunting) + " iron, or " + decimal.format(valueArrowPackHunting/copper) + " copper, or " + decimal.format(valueArrowPackHunting/silver) + " silver, or " + decimal.format(valueArrowPackHunting/gold) + " gold");
@@ -185,6 +184,8 @@ public class Initiator implements WurmServerMod, ItemTemplatesCreatedListener, C
             ArrowPackHunting.onItemTemplatesCreated();
             ArrowPackWar.onItemTemplatesCreated();
             BookOfConversion.onItemTemplatesCreated();
+            ChaosCrystal.onItemTemplatesCreated();
+            CoinDecoration.onItemTemplatesCreated();
             DepthDrill.onItemTemplatesCreated();
             DisintegrationRod.onItemTemplatesCreated();
             EnchantersCrystal.onItemTemplatesCreated();
@@ -201,6 +202,8 @@ public class Initiator implements WurmServerMod, ItemTemplatesCreatedListener, C
         ArrowPackHunting.onServerStarted();
         ArrowPackWar.onServerStarted();
         BookOfConversion.onServerStarted();
+        ChaosCrystal.onServerStarted();
+        CoinDecoration.onServerStarted();
         DepthDrill.onServerStarted();
         DisintegrationRod.onServerStarted();
         EnchantersCrystal.onServerStarted();

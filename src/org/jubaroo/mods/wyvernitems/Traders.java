@@ -2,6 +2,9 @@
 package org.jubaroo.mods.wyvernitems;
 
 import com.wurmonline.server.creatures.Creature;
+import com.wurmonline.server.creatures.CreatureTemplate;
+import com.wurmonline.server.creatures.CreatureTemplateCreator;
+import com.wurmonline.server.creatures.CreatureTemplateFactory;
 import com.wurmonline.server.items.Item;
 import javassist.CtClass;
 import javassist.NotFoundException;
@@ -16,18 +19,6 @@ import java.util.logging.Level;
 public class Traders {
 
     public static void onServerStarted() {
-        //addItemToTrader(AffinityCatcher.getId());
-        //addItemToTrader(AffinityOrb.getId());
-        //addItemToTrader(ArrowPackHunting.getId());
-        //addItemToTrader(ArrowPackWar.getId());
-        //addItemToTrader(BookOfConversion.getId());
-        //addItemToTrader(ChaosCrystal.getId());
-        //addItemToTrader(CoinDecoration.getId());
-        //addItemToTrader(DepthDrill.getId());
-        //addItemToTrader(DisintegrationRod.getId());
-        //addItemToTrader(EnchantersCrystal.getId());
-        //addItemToTrader(EnchantOrb.getId());
-        //addItemToTrader(EternalOrb.getId());
         if (Initiator.traderAffinityCatcher) {addItemToTrader(AffinityCatcher.getId());}
         if (Initiator.traderAffinityOrb) {addItemToTrader(AffinityOrb.getId());}
         if (Initiator.traderArrowPackHunting) {addItemToTrader(ArrowPackHunting.getId());}
@@ -53,7 +44,7 @@ public class Traders {
                     for (int x = 0; x < 3; ++x) {
                         final Item item = Creature.createItem(itemId, Initiator.traderQuality);
                         inventory.insertItem(item);
-                        Initiator.logger.log(Level.INFO,"Items added");
+                        Initiator.logger.log(Level.INFO,"Added item ID: " + itemId);
                     }
                     return result;
                 }

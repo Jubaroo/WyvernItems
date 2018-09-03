@@ -23,6 +23,7 @@ public class DepthDrill implements ItemTypes, MiscConstants {
 		try {
 			final ItemTemplateBuilder itemBuilder = new ItemTemplateBuilder("mod.item.depthdrill");
 			itemBuilder.name(name, "depth drills", "A tool for determining dirt depth.");
+			itemBuilder.descriptions("excellent", "good", "ok", "poor");
 			itemBuilder.itemTypes(new short[]{
 					ItemTypes.ITEM_TYPE_NAMED,
 					ItemTypes.ITEM_TYPE_REPAIRABLE,

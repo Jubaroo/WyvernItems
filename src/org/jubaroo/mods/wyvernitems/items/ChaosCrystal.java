@@ -19,10 +19,10 @@ public class ChaosCrystal implements ItemTypes, MiscConstants {
 		return ChaosCrystal.chaosCrystalId;
 	}
 
-	public void onItemTemplatesCreated() throws IOException{
+	public static void onItemTemplatesCreated() throws IOException{
 		try {
 			String name = "chaos crystal";
-			final ItemTemplateBuilder itemBuilder = new ItemTemplateBuilder("mod.item.chaoscrystal");
+			final ItemTemplateBuilder itemBuilder = new ItemTemplateBuilder("mod.item.chaos.crystal");
 			itemBuilder.name(name, "chaos crystals", "This volatile crystal will either enhance an item, or destroy it outright.");
 			itemBuilder.descriptions("brilliantly glowing", "strongly glowing", "faintly glowing", "barely glowing");
 			itemBuilder.itemTypes(new short[]{

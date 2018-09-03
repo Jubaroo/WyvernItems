@@ -22,7 +22,7 @@ public class DisintegrationRod implements ItemTypes, MiscConstants {
 	public static void onItemTemplatesCreated() throws IOException{
 		try {
 			String name = "Rod of Disintegration";
-			final ItemTemplateBuilder itemBuilder = new ItemTemplateBuilder("item.mod.rod.disintegration");
+			final ItemTemplateBuilder itemBuilder = new ItemTemplateBuilder("mod.item.rod.disintegration");
 			itemBuilder.name(name, "rods of disintegration", "A rod designed for removal of ore veins and cave walls. It will remove " + Initiator.depleteAmount + " with each use." );
 			itemBuilder.itemTypes(new short[]{
 					ITEM_TYPE_FULLPRICE,

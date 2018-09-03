@@ -12,17 +12,18 @@ import java.io.IOException;
 import java.util.logging.Level;
 
 public class CoinDecoration implements ItemTypes, MiscConstants {
-	static String name = "coin pile";
+	public static String name = "coin pile";
 	private static int coinDecorationId;
 
 	public static int getId() {
 		return CoinDecoration.coinDecorationId;
 	}
 
-	public void onItemTemplatesCreated() throws IOException{
+	public static void onItemTemplatesCreated() throws IOException{
 		try {
 			final ItemTemplateBuilder itemBuilder = new ItemTemplateBuilder("mod.item.coin.pile");
 			itemBuilder.name(name, "coin piles", "A pile of decorative coins.");
+			itemBuilder.descriptions("excellent", "good", "ok", "poor");
 			itemBuilder.itemTypes(new short[]{
 					ItemTypes.ITEM_TYPE_NAMED,
 					ItemTypes.ITEM_TYPE_OWNER_DESTROYABLE,
@@ -55,7 +56,7 @@ public class CoinDecoration implements ItemTypes, MiscConstants {
 		Initiator.logger.log(Level.INFO, "Setup completed");
 	}
 	
-	public void onServerStarted(){
+	public static void onServerStarted(){
 		Initiator.logger.info("initCreationEntry()");
 		if(CoinDecoration.coinDecorationId > 0){
 			Initiator.logger.info("Creating "+name+" creation entry, ID = "+CoinDecoration.coinDecorationId);
