@@ -9,7 +9,7 @@ Properties file has options to add items to traders, set quality of those items,
 
 **Depth Drill** - Drills a tile corner, revealing the amount of dirt until you hit rock. Beyond that, it can also locate nearby ores.
 
-**Disintegration Rod** - Sold at a merchant, this removes 10,000 hits from any vein (no ore is provided) or instantly destroys a cave wall (like the Disintegrate spell).
+**Disintegration Rod** - This rod removes the configured amount of hits from any vein (no ore is provided) or instantly destroys a cave wall (like the Disintegrate spell).
 
 **Chaos Crystal**s - A volatile crystal that can be infused with items for a variety of outcomes. It can increase rarity, or destroy the item outright. Uses the "Artifacts" skill.
 
